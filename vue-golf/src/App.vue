@@ -1,19 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+<!--    <img alt="Vue logo" src="./assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <CourseSelect />
+    <router-view></router-view>
+<!--    <CourseSelect />-->
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import CourseSelect from './components/CourseSelect';
+// import HelloWorld from './components/HelloWorld.vue';
+// import CourseSelect from './components/CourseSelect';
+import Router from './Router';
 
 export default {
   name: 'app',
   components: {
-    CourseSelect
+    // Vue,
+    // VueRouter,
+    // CourseSelect,
+    // Course,
+    Router,
   }
 }
 </script>

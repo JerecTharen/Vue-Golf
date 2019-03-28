@@ -5,6 +5,7 @@
             <option v-for="acourse in courses" v-bind:key="acourse.id" v-bind:value="acourse.id">{{acourse.name}}</option>
         </select>
         <button v-on:click="goToCourse">GO</button>
+        <router-link to="/course/18300">Hello There</router-link>
     </div>
 </template>
 
@@ -30,6 +31,7 @@
         methods: {
             goToCourse(){
                 console.log(this.course);
+                this.$router.push({ name: 'Course', params: { courseId: this.courseId }});
             }
         },
     }
