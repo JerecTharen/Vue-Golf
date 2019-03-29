@@ -1,5 +1,5 @@
 <template>
-    <h1>Course: {{courseId}}</h1>
+    <h1>Course: {{$route.params.courseId}}</h1>
 </template>
 
 <script>
@@ -7,8 +7,11 @@
         name: "Course",
         data(){
             return {
-                courseId: this.props.params.courseId,
+                courseId: this.$route.params.courseId,
             }
+        },
+        props: {
+            // courseId: Number,
         },
     }
 </script>

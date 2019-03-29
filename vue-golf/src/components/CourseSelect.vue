@@ -5,13 +5,14 @@
             <option v-for="acourse in courses" v-bind:key="acourse.id" v-bind:value="acourse.id">{{acourse.name}}</option>
         </select>
         <button v-on:click="goToCourse">GO</button>
-        <router-link to="/course/18300">Hello There</router-link>
+        <h3 v-if="warning.show">{{warning.text}}</h3>
     </div>
 </template>
 
 <script>
 
     import axios from 'axios';
+    // import Router from '../Router';
 
     export default {
         name: "CourseSelect",
@@ -26,13 +27,22 @@
             return {
                 courses: [],
                 course: '',
+                warning: {show: false, text: ''},
             }
         },
         methods: {
             goToCourse(){
                 console.log(this.course);
-                this.$router.push({ name: 'Course', params: { courseId: this.courseId }});
+                if(this.course){
+                    this.$router.push({ name: 'Course', params: { courseId: this.course }});
+                }
+                else{
+                    this.warning = {show: true, text: 'You must choose a course to continue!'};
+                }
             }
+        },
+        components: {
+            // Router,
         },
     }
 </script>
